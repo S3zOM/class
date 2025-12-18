@@ -108,14 +108,14 @@ export default function ClassAlbum() {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-red-50 to-green-50 text-slate-800 px-6 py-8 overflow-hidden">
+    <div className="min-h-screen bg-gradient-to-b from-red-50 to-green-50 text-slate-800 px-4 py-6 md:px-6 md:py-8 overflow-hidden">
       {/* Background music */}
       <div className="hidden">
         <div id="youtube-player"></div>
       </div>
 
       {/* Top bar */}
-      <div className="flex items-center justify-between max-w-7xl mx-auto mb-12">
+      <div className="flex flex-col sm:flex-row items-center justify-between max-w-7xl mx-auto mb-8 md:mb-12">
         <div className="flex items-center gap-3">
           <div className="w-12 h-12 rounded-xl border-2 border-red-300 bg-green-100">
             <img
@@ -146,7 +146,7 @@ export default function ClassAlbum() {
         animate={{ opacity: 1, y: 0 }}
         className="text-center mb-16"
       >
-        <h1 className="text-5xl font-bold text-red-700">
+        <h1 className="text-3xl md:text-5xl font-bold text-red-700">
           11a ангийн ЭМХ ЗАМБАРААГҮЙ дурсамж ❄️
         </h1>
         <p className="mt-4 text-green-600">
@@ -194,7 +194,10 @@ export default function ClassAlbum() {
 
         {/* Desk rows */}
         {[0, 1, 2, 3, 4].map((row) => (
-          <div key={row} className="grid grid-cols-4 gap-6">
+          <div
+            key={row}
+            className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 md:gap-6"
+          >
             {students.slice(row * 4, row * 4 + 4).map((s, i) => (
               <motion.div
                 key={i}
@@ -250,7 +253,7 @@ export default function ClassAlbum() {
                   </span>
                 </div>
 
-                <div className="p-6 space-y-3">
+                <div className="p-4 md:p-6 space-y-3">
                   <h3 className="text-2xl font-semibold">
                     {eventNames[event - 1]}
                   </h3>
@@ -275,7 +278,7 @@ export default function ClassAlbum() {
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, scale: 0.9 }}
-            className="bg-green-50 p-8 rounded-2xl max-w-6xl w-full max-h-[95vh] overflow-y-auto shadow-2xl relative"
+            className="bg-green-50 p-4 md:p-8 rounded-2xl max-w-6xl w-full max-h-[95vh] overflow-y-auto shadow-2xl relative"
           >
             <button
               onClick={() => setSelectedEvent(null)}
@@ -317,7 +320,7 @@ export default function ClassAlbum() {
           <img
             src="class.png"
             alt="Манай ангийн зураг"
-            className="w-full h-96 object-cover rounded-2xl shadow-lg mb-6"
+            className="w-full h-64 md:h-96 object-cover rounded-2xl shadow-lg mb-6"
           />
           <p className="text-lg text-slate-600 leading-relaxed">
             Бид бүгээрээ хамт байсан сайхан үеүүд. Хичээл, тоглоом, бүгд
